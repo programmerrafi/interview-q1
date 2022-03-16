@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import Switchs from "./components/Switchs";
+import BlogStories from "./Components/BlogStories";
+import Switchs from "./Components/Switchs";
 import { months } from "./data/DayMonth";
 
 function App() {
@@ -77,53 +78,14 @@ function App() {
   };
 
   return (
-    <div className="w-full h-screen bg-black text-gray-200">
-      <div className="container mx-auto bg-[#1E1F21] h-screen">
+    <div className="w-full h-full xl:h-screen bg-black text-gray-200">
+      <div className="container mx-auto bg-[#1E1F21] h-full  xl:h-screen">
         <header className="flex justify-center items-center bg-[#29292B] border border-gray-700 border-t-0 mb-12">
           <img src="mylogos.png" alt="logo" className="h-11 object-cover" />
           <h3 className="font-semibold">Hootstory</h3>
         </header>
-        <main className="w-[80%] md:w-[60%] mx-auto">
-          <div className="flex items-center gap-4 bg-[#29292B] p-2 rounded mb-5">
-            <div className="flex items-center gap-1">
-              <h2>i</h2>
-              <h4 className="font-bold">Blog</h4>
-            </div>
-            <div className="flex items-center gap-1">
-              <h4
-                onClick={handleClickDelete}
-                className="text-sm text-[#a0645b] cursor-pointer"
-              >
-                Delete all
-              </h4>
-            </div>
-            <div className="flex items-center gap-2">
-              <h2 className="w-5 h-5 rounded-full flex items-center justify-center bg-[#3D3D3F] text-[11px]">
-                {filteredLong?.length}
-              </h2>
-              <h4 className="font-semibold text-sm text-gray-300">
-                Long stroies
-              </h4>
-              <Switchs
-                checkedLongStroy={checkedLongStroy}
-                checkedLong={checkedLong}
-                long
-              />
-            </div>
-            <div className="flex items-center gap-2">
-              <h2 className="w-5 h-5 rounded-full flex items-center justify-center bg-[#3D3D3F] text-[11px]">
-                {filteredShort?.length}
-              </h2>
-              <h4 className="font-semibold text-sm text-gray-300">
-                Short stroies
-              </h4>
-              <Switchs
-                checkedShortStroy={checkedShortStroy}
-                checkedShort={checkedShort}
-                short
-              />
-            </div>
-          </div>
+        <main className="w-[80%] 2xl:w-[60%] mx-auto">
+          <BlogStories handleClickDelete={handleClickDelete} filteredLong={filteredLong} checkedLongStroy={checkedLongStroy} checkedLong={checkedLong} checkedShortStroy={checkedShortStroy} checkedShort={checkedShort} filteredShort={filteredShort}/>
 
           {/* Blog Card */}
           {!deleted && (
@@ -137,11 +99,11 @@ function App() {
                       <div
                         key={id}
                         className={`${
-                          timeCalculate(datetime).getFullYear() != "2022" &&
+                          timeCalculate(datetime).getFullYear() !== 2022 &&
                           "hidden"
                         }`}
                       >
-                        {timeCalculate(datetime).getFullYear() == "2022" && (
+                        {timeCalculate(datetime).getFullYear() === 2022 && (
                           <div className="card rounded-md overflow-hidden md:max-w-md">
                             <div className="flex bg-[#29292B]">
                               <div className="py-2 px-4">
@@ -149,7 +111,7 @@ function App() {
                                   {title !== "NULL" && title}
                                 </h5>
                                 <p className="text-sm">
-                                  {title == "NULL"
+                                  {title === "NULL"
                                     ? truncate(body, 160)
                                     : truncate(body, 100)}
                                 </p>
@@ -182,8 +144,8 @@ function App() {
                     const { id, title, body, datetime, image } = data;
                     return (
                       <div key={id}>
-                        {(timeCalculate(datetime).getFullYear() == "2020" ||
-                          timeCalculate(datetime).getFullYear() == "2021") && (
+                        {(timeCalculate(datetime).getFullYear() === 2020 ||
+                          timeCalculate(datetime).getFullYear() === 2021) && (
                           <div className="card rounded-md overflow-hidden md:max-w-md">
                             <div className="flex bg-[#29292B]">
                               <div className="py-2 px-4">
@@ -191,7 +153,7 @@ function App() {
                                   {title !== "NULL" && title}
                                 </h5>
                                 <p className="text-sm">
-                                  {title == "NULL"
+                                  {title === "NULL"
                                     ? truncate(body, 160)
                                     : truncate(body, 100)}
                                 </p>
