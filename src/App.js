@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import OldCard from "./components/BlogCard/OldCard";
-import RecentCard from "./components/BlogCard/RecentCard";
-import BlogStories from "./components/BlogStories";
+import OldCard from "./Components/BlogCard/OldCard";
+import RecentCard from "./Components/BlogCard/RecentCard";
+import BlogStories from "./Components/BlogStories";
 import { months } from "./data/DayMonth";
 
 function App() {
