@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     getData();
     // console.log(new Date("2020-01-04T02:00:00.000Z").getTime());
-    // console.log(new Date("2022-03-04T02:00:00.000Z").getTime());
+    console.log(new Date("2022-03-04T02:00:00.000Z").getTime());
     // console.log(
     //   allData
     //     .map((data) => {
