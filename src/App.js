@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     getData();
     // console.log(new Date("2020-01-04T02:00:00.000Z").getTime());
-    console.log(new Date("2022-03-04T02:00:00.000Z").getTime());
+    // console.log(new Date("2022-03-04T02:00:00.000Z").getTime());
     // console.log(
     //   allData
     //     .map((data) => {
@@ -44,7 +44,7 @@ function App() {
   useEffect(() => {
     countLongStroy();
     countShortStroy();
-  }, [togData]);
+  }, [togData, allData]);
 
   function truncate(str, num) {
     return str?.length > num ? str.substr(0, num - 1) + "..." : str;
